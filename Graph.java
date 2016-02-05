@@ -11,11 +11,22 @@ public abstract class Graph{
 
 	protected int verticiesCount;
 	protected int edgesCount;
+	
+	private int[] inDegrees;
+	private int[] outDegrees;
 
 	public Graph(){
-
+		edgesCount = 0;
+		verticiesCount = 0;
 	}
 
+	public Graph(int edges){
+		edgesCount = edges;
+		verticiesCount = 0;
+		inDegrees = new int[edges];
+		outDegrees = new int[edges];	
+	}
+	
 	// Returns number of vertices in graph
 	public int numVertices(){
 		return verticiesCount;
@@ -43,6 +54,7 @@ public abstract class Graph{
 			System.out.println("Edge already exists, no duplicates.");
 		}else{
 			insertEdge(e);
+			incrementDegrees(e);
 		}
 	}
 
@@ -61,6 +73,7 @@ public abstract class Graph{
 	public void removeEdge(Edge e){
 		if(existsEdge(e)){
 			deleteEdge(e);
+			decrementDegrees(e);
 		}else{
 			System.out.println("Edge does not exist.");
 		}
@@ -76,16 +89,25 @@ public abstract class Graph{
 		removeEdge(new Edge(src, dest));
 	}
 
-	//
-	//
-	public int[] adjacentVerticies(int i){
+	// Produces an array of verticies adjacent to input vertex i
+	// Implemented in sub classes
+	public abstract int[] adjacentVerticies(int i);
 
+	// Checks to see if an edge exists from vertex i to vertex j
+	// Implemented in sub classes
+	public abstract boolean areAdjacent(int i, int j);
+	
+	// Increase inDegree and outDegree based on input edge src and dest
+	private void incrementDegrees(Edge e){
+		inDegrees[e.getDestination()]++;
+		outDegrees[e.getSource()]++;
 	}
-
-	//
-	//
-	public boolean areAdjacent(int i, int j){
-		
+	
+	// Decrease inDegree and outDegree based on input edge src and dest
+	private void decrementDegrees(Edge e){
+		inDegrees[e.getDestination()]--;
+		outDegrees[e.getSource()]--;
 	}
-
+	
+	
 }
