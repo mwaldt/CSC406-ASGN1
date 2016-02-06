@@ -37,6 +37,7 @@ public abstract class Graph{
 		return edgesCount;
 	}
 
+
 	// Returns True if and edge exists, else false
 	// Input edge class object
 	public abstract boolean existsEdge(Edge e);
@@ -47,6 +48,8 @@ public abstract class Graph{
 		return existsEdge(new Edge(src, dest));
 	}
 
+
+
 	// Adds an edge e to the graph if it doesn't already exist.
 	// Input edge class object
 	public void putEdge(Edge e){
@@ -54,7 +57,6 @@ public abstract class Graph{
 			System.out.println("Edge already exists, no duplicates.");
 		}else{
 			insertEdge(e);
-			incrementDegrees(e);
 		}
 	}
 
@@ -66,22 +68,19 @@ public abstract class Graph{
 
 	// Handles actual insertion of an edge,
 	// Specific implementation based on type of graph
-	private abstract void insertEdge();
+	protected abstract void insertEdge(Edge e);
 	
+
+
 	// Removes an edge e from the graph if it exists.
 	// Input edge class object
 	public void removeEdge(Edge e){
 		if(existsEdge(e)){
 			deleteEdge(e);
-			decrementDegrees(e);
 		}else{
 			System.out.println("Edge does not exist.");
 		}
 	}
-
-	// Handles actual removal of an edge,
-	// Specific implementation based on type of graph
-	private abstract void deleteEdge();
 
 	// Removes an edge e from the graph if it exists.
 	// Input ints source and destination
@@ -89,22 +88,29 @@ public abstract class Graph{
 		removeEdge(new Edge(src, dest));
 	}
 
+	// Handles actual removal of an edge,
+	// Specific implementation based on type of graph
+	protected abstract void deleteEdge(Edge e);
+
+
+
 	// Produces an array of verticies adjacent to input vertex i
 	// Implemented in sub classes
 	public abstract int[] adjacentVerticies(int i);
 
 	// Checks to see if an edge exists from vertex i to vertex j
-	// Implemented in sub classes
-	public abstract boolean areAdjacent(int i, int j);
+	public boolean areAdjacent(int i, int j){
+		return existsEdge(new Edge(i, j));
+	}
 	
 	// Increase inDegree and outDegree based on input edge src and dest
-	private void incrementDegrees(Edge e){
+	protected void incrementDegrees(Edge e){
 		inDegrees[e.getDestination()]++;
 		outDegrees[e.getSource()]++;
 	}
 	
 	// Decrease inDegree and outDegree based on input edge src and dest
-	private void decrementDegrees(Edge e){
+	protected void decrementDegrees(Edge e){
 		inDegrees[e.getDestination()]--;
 		outDegrees[e.getSource()]--;
 	}

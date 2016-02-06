@@ -6,7 +6,7 @@
 * Assigned: 1/26/16
 * Due: 2/15/16
 **/
-public abstract class Edge{
+public class Edge{
 
 	private int source;
 	private int destination;
@@ -16,7 +16,7 @@ public abstract class Edge{
 	public Edge(){
 		source = 0;
 		destination = 0;
-		weight = 1;
+		weight = 0;
 	}
 
 	//Constructor for weighted graph 
