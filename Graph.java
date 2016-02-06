@@ -6,6 +6,8 @@
 * Assigned: 1/26/16
 * Due: 2/15/16
 **/
+
+
 public abstract class Graph{
 
 
@@ -61,9 +63,15 @@ public abstract class Graph{
 	}
 
 	// Adds an edge e to the graph if it doesn't already exist.
-	// Input ints source and destination
+	// Input ints source, destination and weight
+	public void putEdge(int src, int dest, int wght){
+		putEdge(new Edge(src, dest, wght));
+	}
+
+	// Adds an edge e to the graph if it doesn't already exist.
+	// Input ints source and destination, weight is implied at 1
 	public void putEdge(int src, int dest){
-		putEdge(new Edge(src, dest));
+		putEdge(new Edge(src, dest, 1));
 	}
 
 	// Handles actual insertion of an edge,
