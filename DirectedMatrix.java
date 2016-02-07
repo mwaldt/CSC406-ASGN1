@@ -36,7 +36,7 @@ public abstract class DirectedMatrix extends DirectedGraph{
 	}
 
 	// Remove edge for Matrix
-	protected void cleanEdge(Edge e){
+	protected void clearEdge(Edge e){
 		edgeMatrix[e.getSource()][e.getDestination()] = 0;
 	}
 

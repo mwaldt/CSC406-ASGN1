@@ -33,14 +33,14 @@ public abstract class DirectedGraph extends Graph{
 
 	// Handles decrementing of edge count,
 	// Specific implementation based on type of graph
-	protected  void deleteEdge(Edge e){
+	protected void deleteEdge(Edge e){
 		decrementDegrees(e);
-		cleanEdge(e);
+		clearEdge(e);
 	}
 
 	// Create edge for Matrix/list
 	// Specific implementation based on type of graph
-	protected abstract void cleanEdge(Edge e);
+	protected abstract void clearEdge(Edge e);
 
 
 }

@@ -34,7 +34,7 @@ public abstract class DirectedList extends DirectedGraph{
 	}
 
 	// Remove edge for Matrix
-	protected void cleanEdge(Edge e){
+	protected void clearEdge(Edge e){
 		edgeList[e.getSource()].remove(e);
 	}
 
