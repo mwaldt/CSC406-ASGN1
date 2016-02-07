@@ -25,19 +25,19 @@ public abstract class DirectedMatrix extends DirectedGraph{
 
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
-		if( edgeMatrix[e.getSource()][e.getDestination()] == 0){
+		if( edgeMatrix[e.getSource()-1][e.getDestination()-1] == 0){
 			return false;
 		}else { return true; }
 	}
 
 	// Create edge for Matrix
 	protected void createEdge(Edge e){
-		edgeMatrix[e.getSource()][e.getDestination()] = e.getWeight();
+		edgeMatrix[e.getSource()-1][e.getDestination()-1] = e.getWeight();
 	}
 
 	// Remove edge for Matrix
 	protected void clearEdge(Edge e){
-		edgeMatrix[e.getSource()][e.getDestination()] = 0;
+		edgeMatrix[e.getSource()-1][e.getDestination()-1] = 0;
 	}
 
 	// Produces an array of verticies adjacent to input vertex i

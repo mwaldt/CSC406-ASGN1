@@ -8,6 +8,7 @@
 **/
 
 import java.io.*;
+import java.lang.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,6 +19,7 @@ public class Tester{
 
 	private final String weightedFileName = "input weighted.txt";
 	private final String unweightedFileName = "input unweighted.txt";
+	private Scanner scanner;
 
 	public Tester(){
 		
@@ -32,44 +34,82 @@ public class Tester{
 		System.out.println("Running test program for Graph API");
 		
 		System.out.println("Reading from file: " + weightedFileName);
-		
+		ArrayList<String> weightedStrings = readFromFile(weightedFileName);
+/*
+		for(String s : weightedStrings){
+			System.out.println(s);
+		}
+/**/
+		System.out.println("Creating Weighted Directed Matrix");
+		WeightedDirectedMatrix wdm = new WeightedDirectedMatrix(Integer.valueOf(weightedStrings.get(0)));
+		System.out.println("WDM created...");
+		addEdges(wdm, weightedStrings);
+
+		System.out.println("Creating Weighted Directed List");
+		WeightedDirectedList wdl = new WeightedDirectedList(Integer.valueOf(weightedStrings.get(0)));
+		addEdges(wdl, weightedStrings);
+
+		System.out.println("\n------------\n");
+
+
+		System.out.println("Reading from file: " + unweightedFileName);
+		ArrayList<String> unweightedStrings = readFromFile(unweightedFileName);
+
+		System.out.println("Creating Unweighted Directed Matrix");
+		UnweightedDirectedMatrix uwdm = new UnweightedDirectedMatrix(Integer.valueOf(unweightedStrings.get(0)));
+		addEdges(uwdm, unweightedStrings);
+
+		System.out.println("Creating Unweighted Directed List");
+		UnweightedDirectedList uwdl = new UnweightedDirectedList(Integer.valueOf(unweightedStrings.get(0)));
+		addEdges(uwdl, unweightedStrings);
+
+		System.out.println("\n------------\n");
+/*
 		for(String s : readFromFile(weightedFileName)){
 			System.out.println(s);
 		}
+/**/
 		
-		System.out.println("");
-
-		//System.out.println("Reading from file: " + unweightedFileName);
-		//readFromFile(unweightedFileName);
-		System.out.println("");
 	}
 
-	private String[] readFromFile(String fileName){
+
+	private void addEdges(Graph g, ArrayList<String> edges){
+		System.out.println("Enter addEdges Method...");
+		int[] i = new int[3];
+		/*Iterables.skip(edges, 1)/* I was having a hard time making this work for my foreach loop*/
+		System.out.println("Before for loop...");
+		for(String s : edges.subList(1, edges.size())){
+			System.out.println("Before SplitString method call...");
+			i = splitInputString(s);
+			System.out.println("Post Split String Method call...");
+			g.putEdge(i[0], i[1], i[2]);
+		}/**/
+	}
+
+	private int[] splitInputString(String s){
+		String[] str = s.split(" ");
+		int[] ints = new int[str.length]; 
+		for(int i = 0; i < str.length; i++){
+			ints[i] = Integer.parseInt(str[i]);
+		}
+		return ints;
+	}
+
+	private ArrayList<String> readFromFile(String fileName){
 		//String line = null;
+		ArrayList<String> list;
 		Path path = Paths.get(fileName);
 		 
 		System.out.println(path);
         try(Stream<String> lines = Files.lines(path)){
-        	return lines.toArray(size -> new String[size]);
+        	list = new ArrayList<String>(Arrays.asList(lines.toArray(size -> new String[size])));
+        	return list;
+        	//return lines.toArray(size -> new String[size]);
         	//lines.forEach(System.out::println);
         } catch (IOException ex){
-        	return new String[0];
+        	return new ArrayList<String>();
         }
 
-        /*
-        try {
-			FileReader fileReader = new FileReader(fileName);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			
-			while((line = bufferedReader.readLine()) != null) {
-				System.out.println(line);
-			}
 
-			bufferedReader.close();
-		}catch(FileNotFoundException ex) {
-			System.out.println("Unable to open file '" + fileName + "'");
-		}catch(IOException ex) {
-			System.out.println("Error reading file '" + fileName + "'");
-		}/**/
 	}//end method
 }//end class

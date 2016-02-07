@@ -113,14 +113,14 @@ public abstract class Graph{
 	
 	// Increase inDegree and outDegree based on input edge src and dest
 	protected void incrementDegrees(Edge e){
-		inDegrees[e.getDestination()]++;
-		outDegrees[e.getSource()]++;
+		inDegrees[e.getDestination()-1]++;
+		outDegrees[e.getSource()-1]++;
 	}
 	
 	// Decrease inDegree and outDegree based on input edge src and dest
 	protected void decrementDegrees(Edge e){
-		inDegrees[e.getDestination()]--;
-		outDegrees[e.getSource()]--;
+		inDegrees[e.getDestination()-1]--;
+		outDegrees[e.getSource()-1]--;
 	}
 	
 	
