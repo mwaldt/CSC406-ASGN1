@@ -18,9 +18,9 @@ public abstract class DirectedMatrix extends DirectedGraph{
 		super();
 	}
 
-	public DirectedMatrix(int edges){
-		super(edges);
-		edgeMatrix = new int[edges][edges];
+	public DirectedMatrix(int verticies){
+		super(verticies);
+		edgeMatrix = new int[verticies][verticies];
 	}
 
 	// Returns True if and edge exists, else false
@@ -41,15 +41,15 @@ public abstract class DirectedMatrix extends DirectedGraph{
 	}
 
 	// Produces an array of verticies adjacent to input vertex i
-	public int[] adjacentVerticies(int i){
-		List<Integer> adjacentEdges = new ArrayList<Integer>();
+	public ArrayList<Integer> adjacentVerticies(int i){
+		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		int[] rowValues = edgeMatrix[i]; 
 		for(int j = 0; j < rowValues.length; j++){
 			if(rowValues[j] != 0){
-				adjacentEdges.add(j);
+				adjacentVerts.add(j);
 			}
 		}
-		return new int[1];
+		return adjacentVerts;
 		//return adjacentEdges.toArray();
 	}		// -mw need advice on how to better implement
 

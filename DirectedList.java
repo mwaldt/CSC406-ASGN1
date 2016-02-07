@@ -11,21 +11,38 @@ import java.util.*;
 
 public abstract class DirectedList extends DirectedGraph{
 
-	LinkedList<Edge>[] edgeList;
+	protected LinkedList<Edge>[] edgeList;
+
+	protected boolean[] listInit;
 	
 	public DirectedList(){
 		super();
-		edgeList = new LinkedList<Edge>[1];
+		edgeList = new LinkedList[1];
+		listInit = new boolean[1];
 	}
 
-	public DirectedList(int edges){
-		super(edges);
-		edgeList = new LinkedList<Edge>[edges];
+
+	public DirectedList(int verticies){
+		super(verticies);
+		edgeList = new LinkedList[verticies];
+		listInit = new boolean[verticies];
+		for(LinkedList<Edge> e : edgeList){
+			e = new LinkedList<Edge>();
+		}
 	}
 
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
-		return edgeList[e.getSource()-1].contains(e);
+		System.out.println("Entering existsEdge method in DirectedList class");
+		System.out.println(listInit[e.getSource()-1]);
+		if(!(listInit[e.getSource()])){
+			System.out.println("Empty LinkedList: ");
+			listInit[e.getSource()-1] = true;
+			return false;
+		} else{
+			System.out.println("LinkedList has elements");
+			return edgeList[e.getSource()-1].contains(e);
+		}
 	}
 
 	// Create edge for Matrix
@@ -39,13 +56,13 @@ public abstract class DirectedList extends DirectedGraph{
 	}
 
 	// Produces an array of verticies adjacent to input vertex i
-	public int[] adjacentVerticies(int i){
-		List<Integer> adjtVerticies = new ArrayList<Integer>();
+	public ArrayList<Integer> adjacentVerticies(int i){
+		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		ListIterator<Edge> list = edgeList[i].listIterator();
 		while(list.hasNext()){
-			adjtVerticies.add(list.next().getDestination());
+			adjacentVerts.add(list.next().getDestination());
 		}
-		return new int[1];
+		return adjacentVerts;
 	}		// -mw need advice on how to better implement
 	
 }

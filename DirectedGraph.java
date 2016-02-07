@@ -14,8 +14,8 @@ public abstract class DirectedGraph extends Graph{
 		super();
 	}
 
-	public DirectedGraph(int edges){
-		super(edges);
+	public DirectedGraph(int verticies){
+		super(verticies);
 	}
 	
 	// Handles incrementing of edge count,

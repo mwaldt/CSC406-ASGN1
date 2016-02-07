@@ -7,6 +7,7 @@
 * Due: 2/15/16
 **/
 
+import java.util.*;
 
 public abstract class Graph{
 
@@ -22,11 +23,11 @@ public abstract class Graph{
 		verticiesCount = 0;
 	}
 
-	public Graph(int edges){
-		edgesCount = edges;
+	public Graph(int verticies){
+		edgesCount = verticies;
 		verticiesCount = 0;
-		inDegrees = new int[edges];
-		outDegrees = new int[edges];	
+		inDegrees = new int[verticies];
+		outDegrees = new int[verticies];	
 	}
 	
 	// Returns number of vertices in graph
@@ -104,7 +105,7 @@ public abstract class Graph{
 
 	// Produces an array of verticies adjacent to input vertex i
 	// Implemented in sub classes
-	public abstract int[] adjacentVerticies(int i);
+	public abstract ArrayList<Integer> adjacentVerticies(int i);
 
 	// Checks to see if an edge exists from vertex i to vertex j
 	public boolean areAdjacent(int i, int j){

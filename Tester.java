@@ -47,6 +47,11 @@ public class Tester{
 
 		System.out.println("Creating Weighted Directed List");
 		WeightedDirectedList wdl = new WeightedDirectedList(Integer.valueOf(weightedStrings.get(0)));
+		
+		System.out.println("\n\n--------\n\n");
+		System.out.println("Value of first line read in: " + Integer.valueOf(weightedStrings.get(0)));
+		System.out.println("\n\n--------\n\n");
+
 		addEdges(wdl, weightedStrings);
 
 		System.out.println("\n------------\n");
@@ -79,7 +84,7 @@ public class Tester{
 		/*Iterables.skip(edges, 1)/* I was having a hard time making this work for my foreach loop*/
 		System.out.println("Before for loop...");
 		for(String s : edges.subList(1, edges.size())){
-			System.out.println("Before SplitString method call...");
+			System.out.println("Initial String: " + s);
 			i = splitInputString(s);
 			System.out.println("Post Split String Method call...");
 			g.putEdge(i[0], i[1], i[2]);
