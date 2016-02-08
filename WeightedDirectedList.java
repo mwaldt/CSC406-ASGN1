@@ -10,10 +10,6 @@
 
 public class WeightedDirectedList extends DirectedList{
 
-	public WeightedDirectedList(){
-		super();
-	}
-	
 	public WeightedDirectedList(int edges){
 		super(edges);
 	}

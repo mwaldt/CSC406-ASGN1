@@ -10,10 +10,6 @@
 
 public class UnweightedDirectedMatrix extends DirectedMatrix{
 
-	public UnweightedDirectedMatrix(){
-		super();
-	}
-
 	public UnweightedDirectedMatrix(int edges){
 		super(edges);
 	}

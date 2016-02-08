@@ -10,10 +10,6 @@
 
 public class UnweightedDirectedList extends DirectedList{
 
-	public UnweightedDirectedList(){
-		super();
-	}
-
 	public UnweightedDirectedList(int edges){
 		super(edges);
 	}

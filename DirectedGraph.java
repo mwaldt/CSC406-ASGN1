@@ -9,13 +9,14 @@
 
 
 public abstract class DirectedGraph extends Graph{
-
-	public DirectedGraph(){
-		super();
-	}
+	
+	protected int[] inDegrees;
+	protected int[] outDegrees;
 
 	public DirectedGraph(int verticies){
 		super(verticies);
+		inDegrees = new int[verticies];
+		outDegrees = new int[verticies];
 	}
 	
 	// Handles incrementing of edge count,
@@ -41,6 +42,19 @@ public abstract class DirectedGraph extends Graph{
 	// Create edge for Matrix/list
 	// Specific implementation based on type of graph
 	protected abstract void clearEdge(Edge e);
+
+	
+	// Increase inDegree and outDegree based on input edge src and dest
+	protected void incrementDegrees(Edge e){
+		inDegrees[e.getDestination()-1]++;
+		outDegrees[e.getSource()-1]++;
+	}
+	
+	// Decrease inDegree and outDegree based on input edge src and dest
+	protected void decrementDegrees(Edge e){
+		inDegrees[e.getDestination()-1]--;
+		outDegrees[e.getSource()-1]--;
+	}
 
 
 }

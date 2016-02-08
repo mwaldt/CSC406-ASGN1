@@ -12,46 +12,36 @@ import java.util.*;
 
 public abstract class DirectedMatrix extends DirectedGraph{
 
-	private int[][] edgeMatrix;
-
-	public DirectedMatrix(){
-		super();
-	}
+	private int[][] adjacencyMatrix;
 
 	public DirectedMatrix(int verticies){
 		super(verticies);
-		edgeMatrix = new int[verticies][verticies];
+		adjacencyMatrix = new int[verticies][verticies];
 	}
 
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
-		if( edgeMatrix[e.getSource()-1][e.getDestination()-1] == 0){
-			return false;
-		}else { return true; }
+		return !(adjacencyMatrix[e.getSource()-1][e.getDestination()-1] == 0);
 	}
 
 	// Create edge for Matrix
 	protected void createEdge(Edge e){
-		edgeMatrix[e.getSource()-1][e.getDestination()-1] = e.getWeight();
+		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = e.getWeight();
 	}
 
 	// Remove edge for Matrix
 	protected void clearEdge(Edge e){
-		edgeMatrix[e.getSource()-1][e.getDestination()-1] = 0;
+		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = 0;
 	}
 
-	// Produces an array of verticies adjacent to input vertex i
+	// Produces an ArrayList of verticies adjacent to input vertex i
 	public ArrayList<Integer> adjacentVerticies(int i){
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
-		int[] rowValues = edgeMatrix[i]; 
-		for(int j = 0; j < rowValues.length; j++){
-			if(rowValues[j] != 0){
+		for(int j = 0; j < adjacencyMatrix[i].length; j++){
+			if(adjacencyMatrix[i][j] != 0){
 				adjacentVerts.add(j);
 			}
 		}
 		return adjacentVerts;
-		//return adjacentEdges.toArray();
-	}		// -mw need advice on how to better implement
-
-	
+	}
 }

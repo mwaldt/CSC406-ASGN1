@@ -12,32 +12,22 @@ import java.util.*;
 public abstract class Graph{
 
 
-	protected int verticiesCount;
-	protected int edgesCount;
-	
-	private int[] inDegrees;
-	private int[] outDegrees;
-
-	public Graph(){
-		edgesCount = 0;
-		verticiesCount = 0;
-	}
+	protected int vertexCount;
+	protected int edgeCount;
 
 	public Graph(int verticies){
-		edgesCount = verticies;
-		verticiesCount = 0;
-		inDegrees = new int[verticies];
-		outDegrees = new int[verticies];	
+		vertexCount = verticies;
+		edgeCount = 0;	
 	}
 	
 	// Returns number of vertices in graph
 	public int numVertices(){
-		return verticiesCount;
+		return vertexCount;
 	}
 	
 	// Returns number of edges in graph
 	public int numEdges(){
-		return edgesCount;
+		return edgeCount;
 	}
 
 
@@ -111,18 +101,4 @@ public abstract class Graph{
 	public boolean areAdjacent(int i, int j){
 		return existsEdge(new Edge(i, j));
 	}
-	
-	// Increase inDegree and outDegree based on input edge src and dest
-	protected void incrementDegrees(Edge e){
-		inDegrees[e.getDestination()-1]++;
-		outDegrees[e.getSource()-1]++;
-	}
-	
-	// Decrease inDegree and outDegree based on input edge src and dest
-	protected void decrementDegrees(Edge e){
-		inDegrees[e.getDestination()-1]--;
-		outDegrees[e.getSource()-1]--;
-	}
-	
-	
 }
