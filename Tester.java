@@ -32,6 +32,7 @@ public class Tester{
 
 	private void run(){
 		System.out.println("Running test program for Graph API");
+		System.out.println("\n--------\n");
 		
 		System.out.println("Reading from file: " + weightedFileName);
 		ArrayList<String> weightedStrings = readFromFile(weightedFileName);
@@ -42,20 +43,12 @@ public class Tester{
 /**/
 		System.out.println("Creating Weighted Directed Matrix");
 		WeightedDirectedMatrix wdm = new WeightedDirectedMatrix(Integer.valueOf(weightedStrings.get(0)));
-		System.out.println("WDM created...");
 		addEdges(wdm, weightedStrings);
 
 		System.out.println("Creating Weighted Directed List");
 		WeightedDirectedList wdl = new WeightedDirectedList(Integer.valueOf(weightedStrings.get(0)));
 		
-		System.out.println("\n\n--------\n\n");
-		System.out.println("Value of first line read in: " + Integer.valueOf(weightedStrings.get(0)));
-		System.out.println("\n\n--------\n\n");
-
-		addEdges(wdl, weightedStrings);
-
-		System.out.println("\n------------\n");
-
+		System.out.println("\n--------\n");
 
 		System.out.println("Reading from file: " + unweightedFileName);
 		ArrayList<String> unweightedStrings = readFromFile(unweightedFileName);
@@ -79,14 +72,14 @@ public class Tester{
 
 
 	private void addEdges(Graph g, ArrayList<String> edges){
-		System.out.println("Enter addEdges Method...");
+		//System.out.println("Enter addEdges Method...");
 		int[] i = new int[3];
 		/*Iterables.skip(edges, 1)/* I was having a hard time making this work for my foreach loop*/
-		System.out.println("Before for loop...");
+		//System.out.println("Before for loop...");
 		for(String s : edges.subList(1, edges.size())){
-			System.out.println("Initial String: " + s);
+			//System.out.println("Initial String: " + s);
 			i = splitInputString(s);
-			System.out.println("Post Split String Method call...");
+			//System.out.println("Post Split String Method call...");
 			g.putEdge(i[0], i[1], i[2]);
 		}/**/
 	}
@@ -108,7 +101,7 @@ public class Tester{
 		ArrayList<String> list;
 		Path path = Paths.get(fileName);
 		 
-		System.out.println(path);
+		//System.out.println(path);
         try(Stream<String> lines = Files.lines(path)){
         	list = new ArrayList<String>(Arrays.asList(lines.toArray(size -> new String[size])));
         	return list;

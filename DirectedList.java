@@ -33,14 +33,14 @@ public abstract class DirectedList extends DirectedGraph{
 
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
-		System.out.println("Entering existsEdge method in DirectedList class");
-		System.out.println(listInit[e.getSource()-1]);
+		//System.out.println("Entering existsEdge method in DirectedList class");
+		//System.out.println(listInit[e.getSource()-1]);
 		if( !(listInit[e.getSource() - 1]) ){
-			System.out.println("Empty LinkedList: ");
+			//System.out.println("Empty LinkedList: ");
 			listInit[e.getSource()-1] = true;
 			return false;
 		} else{
-			System.out.println("LinkedList has elements");
+			//System.out.println("LinkedList has elements");
 			return edgeList[e.getSource()-1].contains(e);
 		}
 	}
