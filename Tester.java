@@ -45,6 +45,9 @@ public class Tester{
 		WeightedDirectedMatrix wdm = new WeightedDirectedMatrix(Integer.valueOf(weightedStrings.get(0)));
 		addEdges(wdm, weightedStrings);
 
+		// Arbitrary edge known not to be in graph
+		addEdgesTest(wdm, "1 4 5");
+
 		System.out.println("Creating Weighted Directed List");
 		WeightedDirectedList wdl = new WeightedDirectedList(Integer.valueOf(weightedStrings.get(0)));
 		
@@ -72,17 +75,59 @@ public class Tester{
 
 
 	private void addEdges(Graph g, ArrayList<String> edges){
-		//System.out.println("Enter addEdges Method...");
 		int[] i = new int[3];
-		/*Iterables.skip(edges, 1)/* I was having a hard time making this work for my foreach loop*/
-		//System.out.println("Before for loop...");
 		for(String s : edges.subList(1, edges.size())){
 			//System.out.println("Initial String: " + s);
-			i = splitInputString(s);
-			//System.out.println("Post Split String Method call...");
-			g.putEdge(i[0], i[1], i[2]);
-		}/**/
+			addEdge(g, s);
+		}
 	}
+
+	private void addEdge(Graph g, String s){
+		int[] i = splitInputString(s);
+		//System.out.println("Post Split String Method call...");
+		g.putEdge(i[0], i[1], i[2]);
+	}
+
+	private void addEdgesTest(Graph g, String s){
+		System.out.println("Adding new edge ( " + s +") to graph ");
+		addEdge(g, s);
+
+		System.out.println("Attemping to add repeat edge ( " + s +") to graph ");
+		addEdge(g, s);
+	}
+
+
+
+	private void removeEdge(Graph g, String s){
+		int[] i = splitInputString(s);
+		//System.out.println("Post Split String Method call...");
+		g.removeEdge(i[0], i[1]);
+	}
+
+	private void removeEdgesTest(Graph g, String s){
+		System.out.println("Adding new edge ( " + s +") to graph to be removed");
+		addEdge(g, s);
+
+		System.out.println("Removing edge ( " + s +") from graph . ");
+		removeEdge(g, s);
+
+		System.out.println("Attemping to remove edge ( " + s +") from graph again. ");
+		removeEdge(g, s);
+	}
+
+
+	private void getInDegreesOfGraph(Graph g){
+		System.out.println("Printing the indegrees of each verticie in a graph");
+		for(int i = 0; i < g.numVertices(); i++){
+			System.out.println("Verticies adjacent to " + i + ": ");
+			System.out.println(g.adjacentVerticies(i).toString());
+		}
+	}
+
+	private void getIndegreeOfVertex(int i){
+
+	}
+
 
 	private int[] splitInputString(String s){
 		String[] str = s.split(" ");
