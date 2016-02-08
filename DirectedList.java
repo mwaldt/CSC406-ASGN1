@@ -26,8 +26,8 @@ public abstract class DirectedList extends DirectedGraph{
 		super(verticies);
 		edgeList = new LinkedList[verticies];
 		listInit = new boolean[verticies];
-		for(LinkedList<Edge> e : edgeList){
-			e = new LinkedList<Edge>();
+		for(int i = 0; i < edgeList.length; i++){
+			edgeList[i] = new LinkedList<Edge>();
 		}
 	}
 
@@ -35,7 +35,7 @@ public abstract class DirectedList extends DirectedGraph{
 	public boolean existsEdge(Edge e){
 		System.out.println("Entering existsEdge method in DirectedList class");
 		System.out.println(listInit[e.getSource()-1]);
-		if(!(listInit[e.getSource()])){
+		if( !(listInit[e.getSource() - 1]) ){
 			System.out.println("Empty LinkedList: ");
 			listInit[e.getSource()-1] = true;
 			return false;

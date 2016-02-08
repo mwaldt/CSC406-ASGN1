@@ -93,7 +93,10 @@ public class Tester{
 
 	private int[] splitInputString(String s){
 		String[] str = s.split(" ");
-		int[] ints = new int[str.length]; 
+		int[] ints = new int[3];
+		if(str.length == 2){
+			ints[2] = 1;
+		}
 		for(int i = 0; i < str.length; i++){
 			ints[i] = Integer.parseInt(str[i]);
 		}
