@@ -43,7 +43,7 @@ public abstract class DirectedGraph extends Graph{
 	// Specific implementation based on type of graph
 	protected abstract void clearEdge(Edge e);
 
-	
+
 	// Increase inDegree and outDegree based on input edge src and dest
 	protected void incrementDegrees(Edge e){
 		inDegrees[e.getDestination()-1]++;
@@ -54,6 +54,14 @@ public abstract class DirectedGraph extends Graph{
 	protected void decrementDegrees(Edge e){
 		inDegrees[e.getDestination()-1]--;
 		outDegrees[e.getSource()-1]--;
+	}
+
+	protected int getIndegrees(int i){
+		return inDegrees[i];
+	}
+	
+	protected int getOutDegrees(int i){
+		return outDegrees[i];
 	}
 
 

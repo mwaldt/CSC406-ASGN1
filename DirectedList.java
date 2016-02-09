@@ -23,9 +23,15 @@ public abstract class DirectedList extends DirectedGraph{
 
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
-		//System.out.println("Entering existsEdge method in DirectedList class");
-		//System.out.println(listInit[e.getSource()-1]);
-		return adjacencyList[e.getSource()-1].contains(e);
+		//return adjacencyList[e.getSource()-1].contains(e);
+		ListIterator<Edge> list = adjacencyList[e.getSource()-1].listIterator();
+		boolean matchFound = false;
+		while(list.hasNext() && !(matchFound)){
+			if(list.next().equals(e)){
+				matchFound = true;
+			}
+		}
+		return matchFound;
 	}
 
 	// Create edge for List
@@ -46,6 +52,6 @@ public abstract class DirectedList extends DirectedGraph{
 			adjacentVerts.add(list.next().getDestination());
 		}
 		return adjacentVerts;
-	}		// -mw need advice on how to better implement
+	}
 	
 }

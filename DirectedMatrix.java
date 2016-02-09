@@ -39,7 +39,7 @@ public abstract class DirectedMatrix extends DirectedGraph{
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		for(int j = 0; j < adjacencyMatrix[i].length; j++){
 			if(adjacencyMatrix[i][j] != 0){
-				adjacentVerts.add(j);
+				adjacentVerts.add(j+1);
 			}
 		}
 		return adjacentVerts;

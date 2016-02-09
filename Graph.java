@@ -50,6 +50,7 @@ public abstract class Graph{
 			System.out.println("Edge already exists, no duplicates.");
 		}else{
 			insertEdge(e);
+			System.out.println("Edge " + e.toString() + " inserted successfully.");
 		}
 	}
 
@@ -76,6 +77,7 @@ public abstract class Graph{
 	public void removeEdge(Edge e){
 		if(existsEdge(e)){
 			deleteEdge(e);
+			System.out.println("Edge " + e.toString() + " removed successfully.");
 		}else{
 			System.out.println("Edge does not exist.");
 		}

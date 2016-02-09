@@ -36,41 +36,46 @@ public class Tester{
 		
 		System.out.println("Reading from file: " + weightedFileName);
 		ArrayList<String> weightedStrings = readFromFile(weightedFileName);
-/*
-		for(String s : weightedStrings){
-			System.out.println(s);
-		}
-/**/
+		System.out.println("--------");
+
+
 		System.out.println("Creating Weighted Directed Matrix");
 		WeightedDirectedMatrix wdm = new WeightedDirectedMatrix(Integer.valueOf(weightedStrings.get(0)));
 		addEdges(wdm, weightedStrings);
-
-		// Arbitrary edge known not to be in graph
-		addEdgesTest(wdm, "1 4 5");
+		allTestsOnDirectedGraph(wdm);
+		System.out.println("\n--------\n");
 
 		System.out.println("Creating Weighted Directed List");
 		WeightedDirectedList wdl = new WeightedDirectedList(Integer.valueOf(weightedStrings.get(0)));
-		
+		addEdges(wdl, weightedStrings);
+		allTestsOnDirectedGraph(wdl);
 		System.out.println("\n--------\n");
+
 
 		System.out.println("Reading from file: " + unweightedFileName);
 		ArrayList<String> unweightedStrings = readFromFile(unweightedFileName);
+		System.out.println("--------");
 
 		System.out.println("Creating Unweighted Directed Matrix");
 		UnweightedDirectedMatrix uwdm = new UnweightedDirectedMatrix(Integer.valueOf(unweightedStrings.get(0)));
 		addEdges(uwdm, unweightedStrings);
+		allTestsOnDirectedGraph(uwdm);
+		System.out.println("\n--------\n");
 
 		System.out.println("Creating Unweighted Directed List");
 		UnweightedDirectedList uwdl = new UnweightedDirectedList(Integer.valueOf(unweightedStrings.get(0)));
 		addEdges(uwdl, unweightedStrings);
-
+		allTestsOnDirectedGraph(uwdl);
 		System.out.println("\n------------\n");
-/*
-		for(String s : readFromFile(weightedFileName)){
-			System.out.println(s);
-		}
-/**/
 		
+	}
+
+	private void allTestsOnDirectedGraph(DirectedGraph g){
+		//addEdgesTest(g, "1 4 5");
+		getInDegreesOfGraph(g);
+		getOutDegreesOfGraph(g);
+		listAdjacentVerticies(g);
+		removeEdgesTest(g, "5 4 4");
 	}
 
 
@@ -116,16 +121,29 @@ public class Tester{
 	}
 
 
-	private void getInDegreesOfGraph(Graph g){
-		System.out.println("Printing the indegrees of each verticie in a graph");
+	private void getInDegreesOfGraph(DirectedGraph g){
+		System.out.println("Printing the in degrees of each verticie in a graph");
 		for(int i = 0; i < g.numVertices(); i++){
-			System.out.println("Verticies adjacent to " + i + ": ");
-			System.out.println(g.adjacentVerticies(i).toString());
+			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print(g.getIndegrees(i) + "\n");
 		}
 	}
 
-	private void getIndegreeOfVertex(int i){
+	private void getOutDegreesOfGraph(DirectedGraph g){
+		System.out.println("Printing the out degrees of each verticie in a graph");
+		for(int i = 0; i < g.numVertices(); i++){
+			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print(g.getOutDegrees(i) + "\n");
+		}
+	}
+	
 
+	private void listAdjacentVerticies(DirectedGraph g){
+		System.out.println("Printing the list of all adjacent verties to each vertice in the graph.");
+		for(int i = 0; i < g.numVertices(); i++){
+			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print(g.adjacentVerticies(i).toString() + "\n");
+		}
 	}
 
 

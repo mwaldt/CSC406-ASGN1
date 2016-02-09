@@ -37,6 +37,13 @@ public class Edge{
 	public int getSource(){ return source; }
 	public int getDestination(){ return destination; }
 	public int getWeight(){ return weight; }
+	
+	public String toString(){
+		return "( " + source + ", " + destination + ")";
+	}
 
+	public boolean equals(Edge e){
+		return ((this.source == e.getSource()) && (this.destination == e.getDestination()));
+	}
 	
 }
