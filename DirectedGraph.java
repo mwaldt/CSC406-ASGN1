@@ -12,13 +12,13 @@ public abstract class DirectedGraph extends Graph{
 	
 	protected int[] inDegrees;
 	protected int[] outDegrees;
-
-	public void initDirectedGraph(int verticies){
+/*
+	protected void initDirectedGraph(int verticies){
 		initGraph(verticies);
 		inDegrees = new int[verticies];
 		outDegrees = new int[verticies];
 	}
-	
+/**/	
 	// Handles incrementing of edge count,
 	// Specific implementation based on type of graph
 	protected void insertEdge(Edge e){
@@ -56,11 +56,11 @@ public abstract class DirectedGraph extends Graph{
 		outDegrees[e.getSource()-1]--;
 	}
 
-	protected int getIndegrees(int i){
+	protected int inDegree(int i){
 		return inDegrees[i];
 	}
 	
-	protected int getOutDegrees(int i){
+	protected int iutDegree(int i){
 		return outDegrees[i];
 	}
 

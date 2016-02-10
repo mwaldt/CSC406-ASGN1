@@ -131,7 +131,7 @@ public class Tester{
 		System.out.println("Printing the in degrees of each verticie in a graph");
 		for(int i = 0; i < g.numVertices(); i++){
 			System.out.print("Vertex  " + (i+1) + ": ");
-			System.out.print(g.getIndegrees(i) + "\n");
+			System.out.print(g.inDegrees(i) + "\n");
 		}
 		System.out.println();
 	}
@@ -140,7 +140,7 @@ public class Tester{
 		System.out.println("Printing the out degrees of each verticie in a graph");
 		for(int i = 0; i < g.numVertices(); i++){
 			System.out.print("Vertex  " + (i+1) + ": ");
-			System.out.print(g.getOutDegrees(i) + "\n");
+			System.out.print(g.outDegrees(i) + "\n");
 		}
 		System.out.println();
 	}

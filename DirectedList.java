@@ -12,7 +12,7 @@ import java.util.*;
 public abstract class DirectedList extends DirectedGraph{
 
 	protected LinkedList<Edge>[] adjacencyList;
-
+/*
 	protected void initDirectedList(int verticies){
 		initDirectedGraph(verticies);
 		adjacencyList = new LinkedList[verticies];
@@ -20,7 +20,7 @@ public abstract class DirectedList extends DirectedGraph{
 			adjacencyList[i] = new LinkedList<Edge>();
 		}
 	}
-
+/**/
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
 		//return adjacencyList[e.getSource()-1].contains(e);

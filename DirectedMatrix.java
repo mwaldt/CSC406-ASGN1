@@ -13,12 +13,12 @@ import java.util.*;
 public abstract class DirectedMatrix extends DirectedGraph{
 
 	private int[][] adjacencyMatrix;
-
+/*
 	protected void initDirectedMatrix(int verticies){
 		initDirectedGraph(verticies);
 		adjacencyMatrix = new int[verticies][verticies];
 	}
-
+/**/
 	// Returns True if and edge exists, else false
 	public boolean existsEdge(Edge e){
 		return !(adjacencyMatrix[e.getSource()-1][e.getDestination()-1] == 0);
