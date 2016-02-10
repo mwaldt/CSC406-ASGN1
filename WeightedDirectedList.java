@@ -10,7 +10,7 @@
 
 public class WeightedDirectedList extends DirectedList{
 
-	public WeightedDirectedList(int edges){
-		initDirectedList(edges);
+	public WeightedDirectedList(int verticies){
+		initDirectedList(verticies);
 	}
 }

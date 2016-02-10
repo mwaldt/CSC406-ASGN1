@@ -13,7 +13,7 @@ public abstract class DirectedList extends DirectedGraph{
 
 	protected LinkedList<Edge>[] adjacencyList;
 
-	public void initDirectedList(int verticies){
+	protected void initDirectedList(int verticies){
 		initDirectedGraph(verticies);
 		adjacencyList = new LinkedList[verticies];
 		for(int i = 0; i < adjacencyList.length; i++){
@@ -39,6 +39,7 @@ public abstract class DirectedList extends DirectedGraph{
 
 	// Remove edge for List
 	protected void clearEdge(Edge e){
+		System.out.println("EDGE VALUES::: " + e.toString());
 		adjacencyList[e.getSource()-1].remove(e);
 	}
 

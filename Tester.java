@@ -76,6 +76,7 @@ public class Tester{
 		getOutDegreesOfGraph(g);
 		listAdjacentVerticies(g);
 		removeEdgesTest(g, "5 4 4");
+		testAdjacent(g, new Edge(4,5));
 	}
 
 
@@ -85,6 +86,7 @@ public class Tester{
 			//System.out.println("Initial String: " + s);
 			addEdge(g, s);
 		}
+		System.out.println();
 	}
 
 	private void addEdge(Graph g, String s){
@@ -99,6 +101,8 @@ public class Tester{
 
 		System.out.println("Attemping to add repeat edge ( " + s +") to graph ");
 		addEdge(g, s);
+
+		System.out.println();
 	}
 
 
@@ -118,6 +122,8 @@ public class Tester{
 
 		System.out.println("Attemping to remove edge ( " + s +") from graph again. ");
 		removeEdge(g, s);
+
+		System.out.println();
 	}
 
 
@@ -127,6 +133,7 @@ public class Tester{
 			System.out.print("Vertex  " + (i+1) + ": ");
 			System.out.print(g.getIndegrees(i) + "\n");
 		}
+		System.out.println();
 	}
 
 	private void getOutDegreesOfGraph(DirectedGraph g){
@@ -135,6 +142,7 @@ public class Tester{
 			System.out.print("Vertex  " + (i+1) + ": ");
 			System.out.print(g.getOutDegrees(i) + "\n");
 		}
+		System.out.println();
 	}
 	
 
@@ -144,6 +152,17 @@ public class Tester{
 			System.out.print("Vertex  " + (i+1) + ": ");
 			System.out.print(g.adjacentVerticies(i).toString() + "\n");
 		}
+		System.out.println();
+	}
+
+	private void testAdjacent(Graph g, Edge e){
+		System.out.println("Testing to see if vertices " + e.getSource() + " and " + e.getDestination() + " are adjacent.");
+		if(g.existsEdge(e)){
+			System.out.println("Edge " + e.toString() + " exists.");
+		}else{
+			System.out.println("Edge " + e.toString() + " does not exist.");
+		}
+		System.out.println();
 	}
 
 
@@ -173,7 +192,6 @@ public class Tester{
         } catch (IOException ex){
         	return new ArrayList<String>();
         }
-
 
 	}//end method
 }//end class

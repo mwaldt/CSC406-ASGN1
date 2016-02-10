@@ -14,7 +14,7 @@ public abstract class DirectedMatrix extends DirectedGraph{
 
 	private int[][] adjacencyMatrix;
 
-	public void initDirectedMatrix(int verticies){
+	protected void initDirectedMatrix(int verticies){
 		initDirectedGraph(verticies);
 		adjacencyMatrix = new int[verticies][verticies];
 	}
@@ -43,5 +43,14 @@ public abstract class DirectedMatrix extends DirectedGraph{
 			}
 		}
 		return adjacentVerts;
+	}
+
+	public void printMatrix(){
+		for(int i = 0; i < adjacencyMatrix.length; i++){
+			for(int j = 0; j < adjacencyMatrix[i].length; j++){
+				System.out.print(adjacencyMatrix[i][j] + "  ");
+			}
+			System.out.print("\n");
+		}
 	}
 }

@@ -10,8 +10,8 @@
 
 public class UnweightedDirectedList extends DirectedList{
 
-	public UnweightedDirectedList(int edges){
-		initDirectedList(edges);
+	public UnweightedDirectedList(int verticies){
+		initDirectedList(verticies);
 	}
 	
 }

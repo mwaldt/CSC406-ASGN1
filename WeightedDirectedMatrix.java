@@ -10,8 +10,8 @@
 
 public class WeightedDirectedMatrix extends DirectedMatrix{
 
-	public WeightedDirectedMatrix(int edges){
-		initDirectedMatrix(edges);
+	public WeightedDirectedMatrix(int verticies){
+		initDirectedMatrix(verticies);
 	}
 	
 }
