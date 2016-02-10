@@ -11,7 +11,7 @@
 public class UnweightedDirectedList extends DirectedList{
 
 	public UnweightedDirectedList(int edges){
-		super(edges);
+		initDirectedList(edges);
 	}
 	
 }

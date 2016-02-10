@@ -14,8 +14,8 @@ public abstract class DirectedMatrix extends DirectedGraph{
 
 	private int[][] adjacencyMatrix;
 
-	public DirectedMatrix(int verticies){
-		super(verticies);
+	public void initDirectedMatrix(int verticies){
+		initDirectedGraph(verticies);
 		adjacencyMatrix = new int[verticies][verticies];
 	}
 

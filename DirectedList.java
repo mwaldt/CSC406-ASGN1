@@ -13,8 +13,8 @@ public abstract class DirectedList extends DirectedGraph{
 
 	protected LinkedList<Edge>[] adjacencyList;
 
-	public DirectedList(int verticies){
-		super(verticies);
+	public void initDirectedList(int verticies){
+		initDirectedGraph(verticies);
 		adjacencyList = new LinkedList[verticies];
 		for(int i = 0; i < adjacencyList.length; i++){
 			adjacencyList[i] = new LinkedList<Edge>();
@@ -27,9 +27,7 @@ public abstract class DirectedList extends DirectedGraph{
 		ListIterator<Edge> list = adjacencyList[e.getSource()-1].listIterator();
 		boolean matchFound = false;
 		while(list.hasNext() && !(matchFound)){
-			if(list.next().equals(e)){
-				matchFound = true;
-			}
+			matchFound = list.next().equals(e);
 		}
 		return matchFound;
 	}

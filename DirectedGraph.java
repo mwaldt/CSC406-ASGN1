@@ -13,8 +13,8 @@ public abstract class DirectedGraph extends Graph{
 	protected int[] inDegrees;
 	protected int[] outDegrees;
 
-	public DirectedGraph(int verticies){
-		super(verticies);
+	public void initDirectedGraph(int verticies){
+		initGraph(verticies);
 		inDegrees = new int[verticies];
 		outDegrees = new int[verticies];
 	}

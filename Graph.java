@@ -15,9 +15,9 @@ public abstract class Graph{
 	protected int vertexCount;
 	protected int edgeCount;
 
-	public Graph(int verticies){
-		vertexCount = verticies;
-		edgeCount = 0;	
+	public void initGraph(int verticies){
+		this.vertexCount = verticies;
+		this.edgeCount = 0;	
 	}
 	
 	// Returns number of vertices in graph

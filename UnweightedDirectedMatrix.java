@@ -11,7 +11,7 @@
 public class UnweightedDirectedMatrix extends DirectedMatrix{
 
 	public UnweightedDirectedMatrix(int edges){
-		super(edges);
+		initDirectedMatrix(edges);
 	}
 	
 }
