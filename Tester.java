@@ -72,6 +72,8 @@ public class Tester{
 
 	void printTheGraph(Graph g){
 		System.out.println("Printing the string representation of the graph.");
+		System.out.println("Number of vertices: " + g.numVertices());
+		System.out.println("Number of edges: " + g.numEdges());
 		System.out.println(g.toString());
 		System.out.println();
 	}

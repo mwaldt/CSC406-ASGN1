@@ -25,7 +25,6 @@ public abstract class DirectedGraph extends Graph{
 	// Specific implementation based on type of graph
 	void insertEdge(Edge e){
 		incrementDegrees(e);
-		edgeCount++;
 		createEdge(e);
 	}
 
@@ -39,7 +38,6 @@ public abstract class DirectedGraph extends Graph{
 	// Specific implementation based on type of graph
 	void deleteEdge(Edge e){
 		decrementDegrees(e);
-		edgeCount--;
 		clearEdge(e);
 	}
 
