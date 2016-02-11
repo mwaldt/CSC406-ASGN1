@@ -10,7 +10,7 @@
 
 public class WeightedDirectedList extends DirectedList{
 
-	public WeightedDirectedList(int verticies){
-		initDirectedList(verticies);
+	public WeightedDirectedList(String filename){
+		readFromFile(filename);
 	}
 }

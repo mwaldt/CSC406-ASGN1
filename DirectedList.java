@@ -11,46 +11,56 @@ import java.util.*;
 
 public abstract class DirectedList extends DirectedGraph{
 
-	protected LinkedList<Edge>[] adjacencyList;
-/*
-	protected void initDirectedList(int verticies){
-		initDirectedGraph(verticies);
-		adjacencyList = new LinkedList[verticies];
+	LinkedList<Edge>[] adjacencyList;
+
+	// Sets up the Matrix
+	void setUpDataType(){
+		adjacencyList = new LinkedList[vertexCount];
 		for(int i = 0; i < adjacencyList.length; i++){
 			adjacencyList[i] = new LinkedList<Edge>();
 		}
 	}
-/**/
+
 	// Returns True if and edge exists, else false
-	public boolean existsEdge(Edge e){
-		//return adjacencyList[e.getSource()-1].contains(e);
+	boolean existsEdge(Edge e){
+		return adjacencyList[e.getSource()-1].contains(e);
+		/*
 		ListIterator<Edge> list = adjacencyList[e.getSource()-1].listIterator();
 		boolean matchFound = false;
 		while(list.hasNext() && !(matchFound)){
 			matchFound = list.next().equals(e);
 		}
-		return matchFound;
+		
+		return matchFound;	*/
 	}
 
 	// Create edge for List
-	protected void createEdge(Edge e){
+	void createEdge(Edge e){
 		adjacencyList[e.getSource()-1].add(e);
 	}
 
 	// Remove edge for List
-	protected void clearEdge(Edge e){
-		System.out.println("EDGE VALUES::: " + e.toString());
+	void clearEdge(Edge e){
 		adjacencyList[e.getSource()-1].remove(e);
 	}
 
 	// Produces an array of verticies adjacent to input vertex i
-	public ArrayList<Integer> adjacentVerticies(int i){
+	ArrayList<Integer> adjacentVerticies(int i){
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		ListIterator<Edge> list = adjacencyList[i].listIterator();
 		while(list.hasNext()){
 			adjacentVerts.add(list.next().getDestination());
 		}
 		return adjacentVerts;
+	}
+
+	@Override
+	public String toString(){
+		String out = "";
+		for(int i = 0; i < adjacencyList.length; i++){
+
+		}
+		return out;
 	}
 	
 }

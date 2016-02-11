@@ -12,30 +12,30 @@ import java.util.*;
 
 public abstract class DirectedMatrix extends DirectedGraph{
 
-	private int[][] adjacencyMatrix;
-/*
-	protected void initDirectedMatrix(int verticies){
-		initDirectedGraph(verticies);
-		adjacencyMatrix = new int[verticies][verticies];
+	int[][] adjacencyMatrix;
+
+	// Sets up the Matrix
+	void setUpDataType(){
+		adjacencyMatrix = new int[vertexCount][vertexCount];
 	}
-/**/
+
 	// Returns True if and edge exists, else false
-	public boolean existsEdge(Edge e){
+	boolean existsEdge(Edge e){
 		return !(adjacencyMatrix[e.getSource()-1][e.getDestination()-1] == 0);
 	}
 
 	// Create edge for Matrix
-	protected void createEdge(Edge e){
+	void createEdge(Edge e){
 		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = e.getWeight();
 	}
 
 	// Remove edge for Matrix
-	protected void clearEdge(Edge e){
+	void clearEdge(Edge e){
 		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = 0;
 	}
 
 	// Produces an ArrayList of verticies adjacent to input vertex i
-	public ArrayList<Integer> adjacentVerticies(int i){
+	ArrayList<Integer> adjacentVerticies(int i){
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		for(int j = 0; j < adjacencyMatrix[i].length; j++){
 			if(adjacencyMatrix[i][j] != 0){
@@ -45,12 +45,16 @@ public abstract class DirectedMatrix extends DirectedGraph{
 		return adjacentVerts;
 	}
 
-	public void printMatrix(){
+	//Returns Directed Matrix as a String
+	@Override
+	public String toString(){
+		String out = "";
 		for(int i = 0; i < adjacencyMatrix.length; i++){
 			for(int j = 0; j < adjacencyMatrix[i].length; j++){
-				System.out.print(adjacencyMatrix[i][j] + "  ");
+				out += adjacencyMatrix[i][j] + "  ";
 			}
-			System.out.print("\n");
+			out += "\n";
 		}
+		return out;
 	}
 }

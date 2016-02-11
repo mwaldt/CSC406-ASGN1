@@ -10,8 +10,8 @@
 
 public class UnweightedDirectedMatrix extends DirectedMatrix{
 
-	public UnweightedDirectedMatrix(int verticies){
-		initDirectedMatrix(verticies);
+	public UnweightedDirectedMatrix(String filename){
+		readFromFile(filename);
 	}
 	
 }

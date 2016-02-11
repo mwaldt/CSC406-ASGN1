@@ -10,8 +10,8 @@
 
 public class UnweightedDirectedList extends DirectedList{
 
-	public UnweightedDirectedList(int verticies){
-		initDirectedList(verticies);
+	public UnweightedDirectedList(String filename){
+		readFromFile(filename);
 	}
 	
 }

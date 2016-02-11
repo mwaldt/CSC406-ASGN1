@@ -21,12 +21,7 @@ public abstract class Graph{
 	protected int vertexCount;
 	protected int edgeCount;
 
-/*
-	protected void initGraph(int verticies){
-		this.vertexCount = verticies;
-		this.edgeCount = 0;	
-	}
-/**/
+
 	// Returns number of vertices in graph
 	int numVertices(){
 		return vertexCount;
@@ -113,6 +108,7 @@ public abstract class Graph{
 		return existsEdge(i, j);
 	}
 
+	//
 	int[] splitInputString(String s){
 		String[] str = s.split(" ");
 		int[] ints = new int[3];
@@ -125,22 +121,7 @@ public abstract class Graph{
 		return ints;
 	}
 
-	//
-	//
-	void readFromFile(String filename){
-		String[] lines;
-		Path path = Paths.get(filename);
-		int[] ints = new int[3];
-		try(Stream<String> fileStream = Files.lines(path)){
-		lines = fileStream.toArray(size -> new String[size]);
-		vertexCount = (lines.length -1);
-		for(int i = 1; i < lines.length; i++){
-			ints = splitInputString(lines[i]);
-			putEdge(ints[0], ints[1], ints[2]);
-		}
-		} catch (IOException ex){
-        	System.out.println(ex.toString());
-        }
-		
-	}//End Method
+	//Creates the graph from input file
+	//File name is supplied as parameter.
+	abstract void readFromFile(String filename);
 }//End Class

@@ -10,8 +10,8 @@
 
 public class WeightedDirectedMatrix extends DirectedMatrix{
 
-	public WeightedDirectedMatrix(int verticies){
-		initDirectedMatrix(verticies);
+	public WeightedDirectedMatrix(String filename){
+		readFromFile(filename);
 	}
 	
 }
