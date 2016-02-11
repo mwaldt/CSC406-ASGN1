@@ -8,9 +8,9 @@
 **/
 public class Edge{
 
-	private int source;
-	private int destination;
-	private int weight;
+	int source;
+	int destination;
+	int weight;
 
 	//Default Constructor
 	public Edge(){
@@ -39,7 +39,7 @@ public class Edge{
 	public int getWeight(){ return weight; }
 	
 	public String toString(){
-		return "( " + source + ", " + destination + ")";
+		return "(" + source + ", " + destination + ")";
 	}
 
 	public boolean equals(Edge e){

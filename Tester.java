@@ -59,6 +59,7 @@ public class Tester{
 
 	private void allTestsOnDirectedGraph(DirectedGraph g){
 		System.out.println();
+		printTheGraph(g);
 		getInDegreesOfGraph(g);
 		getOutDegreesOfGraph(g);
 		listAdjacentVerticies(g);
@@ -67,6 +68,12 @@ public class Tester{
 		testAdjacent(g, new Edge(4,5));
 		System.out.println("Testing for edge that does not exist.");
 		testAdjacent(g, new Edge(1,4));
+	}
+
+	void printTheGraph(Graph g){
+		System.out.println("Printing the string representation of the graph.");
+		System.out.println(g.toString());
+		System.out.println();
 	}
 
 
@@ -121,5 +128,6 @@ public class Tester{
 		}
 		System.out.println();
 	}
+
 
 }//end class

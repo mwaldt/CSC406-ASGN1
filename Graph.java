@@ -18,9 +18,8 @@ import java.util.*;
 public abstract class Graph{
 
 
-	protected int vertexCount;
-	protected int edgeCount;
-
+	int vertexCount;
+	int edgeCount;
 
 	// Returns number of vertices in graph
 	int numVertices(){
@@ -32,7 +31,6 @@ public abstract class Graph{
 		return edgeCount;
 	}
 
-
 	// Returns True if and edge exists, else false
 	// Input edge class object
 	abstract boolean existsEdge(Edge e);
@@ -42,8 +40,6 @@ public abstract class Graph{
 	boolean existsEdge(int src, int dest){
 		return existsEdge(new Edge(src, dest));
 	}
-
-
 
 	// Adds an edge e to the graph if it doesn't already exist.
 	// Input edge class object
@@ -72,8 +68,6 @@ public abstract class Graph{
 	// Handles actual insertion of an edge,
 	// Specific implementation based on type of graph
 	abstract void insertEdge(Edge e);
-	
-
 
 	// Removes an edge e from the graph if it exists.
 	// Input edge class object
@@ -97,8 +91,6 @@ public abstract class Graph{
 	// Specific implementation based on type of graph
 	abstract void deleteEdge(Edge e);
 
-
-
 	// Produces an array of verticies adjacent to input vertex i
 	// Implemented in sub classes
 	abstract ArrayList<Integer> adjacentVerticies(int i);
@@ -108,20 +100,13 @@ public abstract class Graph{
 		return existsEdge(i, j);
 	}
 
-	//
-	int[] splitInputString(String s){
-		String[] str = s.split(" ");
-		int[] ints = new int[3];
-		if(str.length == 2){
-			ints[2] = 1;
-		}
-		for(int i = 0; i < str.length; i++){
-			ints[i] = Integer.parseInt(str[i]);
-		}
-		return ints;
+	// Checks to see if edge e exists from
+	boolean areAdjacent(Edge e){
+		return existsEdge(e);
 	}
 
 	//Creates the graph from input file
 	//File name is supplied as parameter.
 	abstract void readFromFile(String filename);
+
 }//End Class

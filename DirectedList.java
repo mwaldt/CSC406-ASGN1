@@ -24,14 +24,6 @@ public abstract class DirectedList extends DirectedGraph{
 	// Returns True if and edge exists, else false
 	boolean existsEdge(Edge e){
 		return adjacencyList[e.getSource()-1].contains(e);
-		/*
-		ListIterator<Edge> list = adjacencyList[e.getSource()-1].listIterator();
-		boolean matchFound = false;
-		while(list.hasNext() && !(matchFound)){
-			matchFound = list.next().equals(e);
-		}
-		
-		return matchFound;	*/
 	}
 
 	// Create edge for List
@@ -47,9 +39,9 @@ public abstract class DirectedList extends DirectedGraph{
 	// Produces an array of verticies adjacent to input vertex i
 	ArrayList<Integer> adjacentVerticies(int i){
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
-		ListIterator<Edge> list = adjacencyList[i].listIterator();
-		while(list.hasNext()){
-			adjacentVerts.add(list.next().getDestination());
+		ListIterator<Edge> iterator = adjacencyList[i].listIterator();
+		while(iterator.hasNext()){
+			adjacentVerts.add(iterator.next().getDestination());
 		}
 		return adjacentVerts;
 	}
@@ -57,8 +49,14 @@ public abstract class DirectedList extends DirectedGraph{
 	@Override
 	public String toString(){
 		String out = "";
+		ListIterator<Edge> iterator;
 		for(int i = 0; i < adjacencyList.length; i++){
-
+			iterator = adjacencyList[i].listIterator();
+			out += "Vertex " + (i + 1) +": ";
+			while(iterator.hasNext()){
+				out +=	iterator.next().getDestination() +" ";
+			}
+			out += "\n";
 		}
 		return out;
 	}
