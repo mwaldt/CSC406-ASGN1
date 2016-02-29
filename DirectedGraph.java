@@ -7,8 +7,6 @@
 * Due: 2/15/16
 **/
 
-///aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasfasfasfasfafs
-
 import java.io.*;
 import java.lang.*;
 import java.nio.file.Files;
@@ -50,14 +48,14 @@ public abstract class DirectedGraph extends Graph{
 
 	// Increase inDegree and outDegree based on input edge src and dest
 	void incrementDegrees(Edge e){
-		inDegree[e.getDestination()-1]++;
-		outDegree[e.getSource()-1]++;
+		inDegree[e.getDestination()]++;
+		outDegree[e.getSource()]++;
 	}
 	
 	// Decrease inDegree and outDegree based on input edge src and dest
 	void decrementDegrees(Edge e){
-		inDegree[e.getDestination()-1]--;
-		outDegree[e.getSource()-1]--;
+		inDegree[e.getDestination()]--;
+		outDegree[e.getSource()]--;
 	}
 
 	//Returns the number of edges that enter a verticy 

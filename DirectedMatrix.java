@@ -21,17 +21,17 @@ public abstract class DirectedMatrix extends DirectedGraph{
 
 	// Returns True if and edge exists, else false
 	boolean existsEdge(Edge e){
-		return !(adjacencyMatrix[e.getSource()-1][e.getDestination()-1] == 0);
+		return !(adjacencyMatrix[e.getSource()][e.getDestination()] == 0);
 	}
 
 	// Create edge for Matrix
 	void createEdge(Edge e){
-		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = e.getWeight();
+		adjacencyMatrix[e.getSource()][e.getDestination()] = e.getWeight();
 	}
 
 	// Remove edge for Matrix
 	void clearEdge(Edge e){
-		adjacencyMatrix[e.getSource()-1][e.getDestination()-1] = 0;
+		adjacencyMatrix[e.getSource()][e.getDestination()] = 0;
 	}
 
 	// Produces an ArrayList of verticies adjacent to input vertex i
@@ -39,7 +39,7 @@ public abstract class DirectedMatrix extends DirectedGraph{
 		ArrayList<Integer> adjacentVerts = new ArrayList<Integer>();
 		for(int j = 0; j < adjacencyMatrix[i].length; j++){
 			if(adjacencyMatrix[i][j] != 0){
-				adjacentVerts.add(j+1);
+				adjacentVerts.add(j);
 			}
 		}
 		return adjacentVerts;

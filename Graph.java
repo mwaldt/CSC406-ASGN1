@@ -109,4 +109,8 @@ public abstract class Graph{
 	//File name is supplied as parameter.
 	abstract void readFromFile(String filename);
 
+	boolean rangeCheck(Edge e){
+		return (e.getSource() < 0 && e.getSource() > vertexCount && e.getDestination() < 0 && e.getDestination() > vertexCount);
+	}
+
 }//End Class

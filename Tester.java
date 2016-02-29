@@ -96,7 +96,7 @@ public class Tester{
 	private void getInDegreesOfGraph(DirectedGraph g){
 		System.out.println("Printing the in degrees of each verticie in a graph");
 		for(int i = 0; i < g.numVertices(); i++){
-			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print("Vertex  " + (i) + ": ");
 			System.out.print(g.inDegree(i) + "\n");
 		}
 		System.out.println();
@@ -105,7 +105,7 @@ public class Tester{
 	private void getOutDegreesOfGraph(DirectedGraph g){
 		System.out.println("Printing the out degrees of each verticie in a graph");
 		for(int i = 0; i < g.numVertices(); i++){
-			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print("Vertex  " + (i) + ": ");
 			System.out.print(g.outDegree(i) + "\n");
 		}
 		System.out.println();
@@ -115,7 +115,7 @@ public class Tester{
 	private void listAdjacentVerticies(DirectedGraph g){
 		System.out.println("Printing the list of all adjacent verties to each vertice in the graph.");
 		for(int i = 0; i < g.numVertices(); i++){
-			System.out.print("Vertex  " + (i+1) + ": ");
+			System.out.print("Vertex  " + (i) + ": ");
 			System.out.print(g.adjacentVerticies(i).toString() + "\n");
 		}
 		System.out.println();

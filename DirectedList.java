@@ -23,17 +23,17 @@ public abstract class DirectedList extends DirectedGraph{
 
 	// Returns True if and edge exists, else false
 	boolean existsEdge(Edge e){
-		return adjacencyList[e.getSource()-1].contains(e);
+		return adjacencyList[e.getSource()].contains(e);
 	}
 
 	// Create edge for List
 	void createEdge(Edge e){
-		adjacencyList[e.getSource()-1].add(e);
+		adjacencyList[e.getSource()].add(e);
 	}
 
 	// Remove edge for List
 	void clearEdge(Edge e){
-		adjacencyList[e.getSource()-1].remove(e);
+		adjacencyList[e.getSource()].remove(e);
 	}
 
 	// Produces an array of verticies adjacent to input vertex i
@@ -52,7 +52,7 @@ public abstract class DirectedList extends DirectedGraph{
 		ListIterator<Edge> iterator;
 		for(int i = 0; i < adjacencyList.length; i++){
 			iterator = adjacencyList[i].listIterator();
-			out += "Vertex " + (i + 1) +": ";
+			out += "Vertex " + (i) +": ";
 			while(iterator.hasNext()){
 				out +=	iterator.next().getDestination() +" ";
 			}
